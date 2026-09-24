@@ -1,0 +1,1788 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>CarJoy | Secure Payment</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Payment CSS -->
+    <link
+        rel="stylesheet"
+        href="payment.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+
+    <div class="container">
+
+        <a
+            class="navbar-brand"
+            href="index.html">
+
+            <span class="brand-icon">
+                <i class="bi bi-car-front-fill"></i>
+            </span>
+
+            <span>CarJoy</span>
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainMenu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="mainMenu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="index.html">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="booking.html">
+
+                        Booking
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link active"
+                        href="#">
+
+                        Payment
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="checkout-header">
+
+    <div class="container">
+
+        <div class="checkout-header-content">
+
+            <div>
+
+                <span class="checkout-label">
+                    CARJOY CHECKOUT
+                </span>
+
+                <h1>
+                    Complete Your Reservation
+                </h1>
+
+                <p>
+                    Review your booking and complete your
+                    payment securely.
+                </p>
+
+            </div>
+
+
+            <div class="secure-checkout">
+
+                <div class="secure-icon">
+
+                    <i class="bi bi-shield-lock-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        Secure Checkout
+                    </strong>
+
+                    <span>
+                        256-bit SSL Encryption
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BOOKING PROGRESS
+===================================================== -->
+
+<section class="container booking-progress-wrapper">
+
+    <div class="booking-progress">
+
+
+        <!-- STEP 1 -->
+
+        <div class="progress-step completed">
+
+            <div class="step-number">
+
+                <i class="bi bi-check-lg"></i>
+
+            </div>
+
+            <div class="step-content">
+
+                <strong>
+                    Booking Details
+                </strong>
+
+                <span>
+                    Vehicle & trip
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- LINE -->
+
+        <div class="progress-line completed"></div>
+
+
+        <!-- STEP 2 -->
+
+        <div class="progress-step active">
+
+            <div class="step-number">
+                2
+            </div>
+
+            <div class="step-content">
+
+                <strong>
+                    Payment
+                </strong>
+
+                <span>
+                    Secure payment
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- LINE -->
+
+        <div class="progress-line"></div>
+
+
+        <!-- STEP 3 -->
+
+        <div class="progress-step">
+
+            <div class="step-number">
+                3
+            </div>
+
+            <div class="step-content">
+
+                <strong>
+                    Confirmation
+                </strong>
+
+                <span>
+                    Booking complete
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MAIN CHECKOUT
+===================================================== -->
+
+<main class="container checkout-main">
+
+    <div class="row g-4">
+
+
+        <!-- =================================================
+             LEFT COLUMN
+        ================================================= -->
+
+        <div class="col-xl-7">
+
+
+            <!-- =============================================
+                 VEHICLE
+            ============================================== -->
+
+            <div class="checkout-card vehicle-card">
+
+                <div class="section-heading">
+
+                    <div class="section-icon">
+
+                        <i class="bi bi-car-front-fill"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            YOUR VEHICLE
+                        </span>
+
+                        <h2>
+                            Reservation Details
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="vehicle-preview">
+
+
+                    <div class="vehicle-image">
+
+                        <img
+                            id="carImage"
+                            src=""
+                            alt="Selected car">
+
+                        <div class="vehicle-badge">
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                            Selected
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="vehicle-info">
+
+                        <span class="vehicle-category">
+                            PREMIUM RENTAL
+                        </span>
+
+                        <h3 id="carName">
+                            Selected Car
+                        </h3>
+
+                        <p id="carInfo">
+                            Vehicle details
+                        </p>
+
+
+                        <div class="vehicle-features">
+
+                            <span>
+
+                                <i class="bi bi-fuel-pump"></i>
+
+                                <span id="fuelDisplay">
+                                    Fuel
+                                </span>
+
+                            </span>
+
+
+                            <span>
+
+                                <i class="bi bi-gear"></i>
+
+                                <span id="transmissionDisplay">
+                                    Automatic
+                                </span>
+
+                            </span>
+
+
+                            <span>
+
+                                <i class="bi bi-people"></i>
+
+                                <span id="seatsDisplay">
+                                    5 Seats
+                                </span>
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TRIP -->
+
+                <div class="trip-details">
+
+
+                    <div class="trip-item">
+
+                        <div class="trip-icon">
+
+                            <i class="bi bi-calendar-event"></i>
+
+                        </div>
+
+                        <div>
+
+                            <span>
+                                PICKUP DATE
+                            </span>
+
+                            <strong id="pickupDisplay">
+                                -
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="trip-divider"></div>
+
+
+                    <div class="trip-item">
+
+                        <div class="trip-icon">
+
+                            <i class="bi bi-calendar-check"></i>
+
+                        </div>
+
+                        <div>
+
+                            <span>
+                                RETURN DATE
+                            </span>
+
+                            <strong id="returnDisplay">
+                                -
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="trip-divider"></div>
+
+
+                    <div class="trip-item">
+
+                        <div class="trip-icon">
+
+                            <i class="bi bi-clock-history"></i>
+
+                        </div>
+
+                        <div>
+
+                            <span>
+                                RENTAL PERIOD
+                            </span>
+
+                            <strong id="daysDisplay">
+                                -
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 PAYMENT
+            ============================================== -->
+
+            <div class="checkout-card">
+
+                <div class="section-heading">
+
+                    <div class="section-icon">
+
+                        <i class="bi bi-credit-card-2-front"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            PAYMENT
+                        </span>
+
+                        <h2>
+                            Choose Payment Method
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAYMENT TABS -->
+
+                <div class="payment-tabs">
+
+
+                    <button
+                        type="button"
+                        class="payment-tab active"
+                        data-method="card">
+
+                        <i class="bi bi-credit-card"></i>
+
+                        <span>
+                            Card
+                        </span>
+
+                        <small>
+                            Visa • Mastercard
+                        </small>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="payment-tab"
+                        data-method="upi">
+
+                        <i class="bi bi-phone"></i>
+
+                        <span>
+                            UPI
+                        </span>
+
+                        <small>
+                            GPay • PhonePe
+                        </small>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="payment-tab"
+                        data-method="bank">
+
+                        <i class="bi bi-bank"></i>
+
+                        <span>
+                            Net Banking
+                        </span>
+
+                        <small>
+                            Major banks
+                        </small>
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- =========================================
+                     CARD
+                ========================================== -->
+
+                <div
+                    class="payment-panel active"
+                    id="cardPanel">
+
+
+                    <div class="card-preview">
+
+                        <div class="card-top">
+
+                            <span>
+                                CARJOY
+                            </span>
+
+                            <i class="bi bi-wifi"></i>
+
+                        </div>
+
+
+                        <div class="card-chip">
+
+                            <i class="bi bi-cpu"></i>
+
+                        </div>
+
+
+                        <div
+                            class="card-number-preview"
+                            id="cardPreviewNumber">
+
+                            •••• •••• •••• ••••
+
+                        </div>
+
+
+                        <div class="card-bottom">
+
+                            <div>
+
+                                <small>
+                                    CARD HOLDER
+                                </small>
+
+                                <span id="cardPreviewName">
+                                    YOUR NAME
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <small>
+                                    EXPIRES
+                                </small>
+
+                                <span id="cardPreviewExpiry">
+                                    MM/YY
+                                </span>
+
+                            </div>
+
+
+                            <strong>
+                                VISA
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row g-3 mt-1">
+
+
+                        <div class="col-12">
+
+                            <label>
+                                Cardholder Name
+                            </label>
+
+                            <div class="input-box">
+
+                                <i class="bi bi-person"></i>
+
+                                <input
+                                    type="text"
+                                    id="cardName"
+                                    placeholder="Name on card"
+                                    autocomplete="cc-name">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-12">
+
+                            <label>
+                                Card Number
+                            </label>
+
+                            <div class="input-box">
+
+                                <i class="bi bi-credit-card"></i>
+
+                                <input
+                                    type="text"
+                                    id="cardNumber"
+                                    maxlength="19"
+                                    placeholder="1234 5678 9012 3456"
+                                    inputmode="numeric"
+                                    autocomplete="cc-number">
+
+                                <span
+                                    id="cardBrand"
+                                    class="card-brand">
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <label>
+                                Expiry
+                            </label>
+
+                            <div class="input-box">
+
+                                <i class="bi bi-calendar3"></i>
+
+                                <input
+                                    type="text"
+                                    id="expiry"
+                                    maxlength="5"
+                                    placeholder="MM/YY"
+                                    inputmode="numeric"
+                                    autocomplete="cc-exp">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <label>
+                                CVV
+                            </label>
+
+                            <div class="input-box">
+
+                                <i class="bi bi-shield-lock"></i>
+
+                                <input
+                                    type="password"
+                                    id="cvv"
+                                    maxlength="4"
+                                    placeholder="•••"
+                                    inputmode="numeric"
+                                    autocomplete="cc-csc">
+
+                                <button
+                                    type="button"
+                                    id="toggleCvv">
+
+                                    <i class="bi bi-eye"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="save-payment">
+
+                        <input
+                            type="checkbox"
+                            id="saveCard">
+
+                        <label for="saveCard">
+                            Remember this payment method
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================================
+                     UPI
+                ========================================== -->
+
+                <div
+                    class="payment-panel"
+                    id="upiPanel">
+
+                    <div class="upi-payment-box">
+
+
+                        <div class="qr-section">
+
+                            <div class="qr-frame">
+
+                                <img
+                                    src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=CarJoyPayment"
+                                    alt="CarJoy UPI QR Code">
+
+                            </div>
+
+                            <strong>
+                                Scan to Pay
+                            </strong>
+
+                            <span>
+                                Use any supported UPI app
+                            </span>
+
+                        </div>
+
+
+                        <div class="upi-or">
+
+                            <span>
+                                OR
+                            </span>
+
+                        </div>
+
+
+                        <div class="upi-id-section">
+
+                            <label>
+                                Enter UPI ID
+                            </label>
+
+                            <div class="input-box">
+
+                                <i class="bi bi-at"></i>
+
+                                <input
+                                    type="text"
+                                    id="upiId"
+                                    placeholder="username@upi">
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                id="verifyUpi"
+                                class="verify-button">
+
+                                Verify UPI ID
+
+                            </button>
+
+
+                            <div
+                                id="upiStatus"
+                                class="upi-status">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="upi-apps">
+
+                        <span>
+                            Supported
+                        </span>
+
+                        <div>
+                            <b>G</b>
+                            Google Pay
+                        </div>
+
+                        <div>
+                            <b>P</b>
+                            PhonePe
+                        </div>
+
+                        <div>
+                            <b>₹</b>
+                            BHIM
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================================
+                     NET BANKING
+                ========================================== -->
+
+                <div
+                    class="payment-panel"
+                    id="bankPanel">
+
+                    <label>
+                        Select your bank
+                    </label>
+
+
+                    <div class="bank-options">
+
+
+                        <button
+                            type="button"
+                            class="bank-item"
+                            data-bank="State Bank of India">
+
+                            <span class="bank-logo">
+                                SBI
+                            </span>
+
+                            <strong>
+                                State Bank of India
+                            </strong>
+
+                            <i class="bi bi-chevron-right"></i>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="bank-item"
+                            data-bank="HDFC Bank">
+
+                            <span class="bank-logo">
+                                HDFC
+                            </span>
+
+                            <strong>
+                                HDFC Bank
+                            </strong>
+
+                            <i class="bi bi-chevron-right"></i>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="bank-item"
+                            data-bank="ICICI Bank">
+
+                            <span class="bank-logo">
+                                ICICI
+                            </span>
+
+                            <strong>
+                                ICICI Bank
+                            </strong>
+
+                            <i class="bi bi-chevron-right"></i>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="bank-item"
+                            data-bank="Axis Bank">
+
+                            <span class="bank-logo">
+                                AXIS
+                            </span>
+
+                            <strong>
+                                Axis Bank
+                            </strong>
+
+                            <i class="bi bi-chevron-right"></i>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="bank-item"
+                            data-bank="Kotak Mahindra Bank">
+
+                            <span class="bank-logo">
+                                KOTAK
+                            </span>
+
+                            <strong>
+                                Kotak Mahindra Bank
+                            </strong>
+
+                            <i class="bi bi-chevron-right"></i>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="bank-item"
+                            data-bank="Bank of Baroda">
+
+                            <span class="bank-logo">
+                                BOB
+                            </span>
+
+                            <strong>
+                                Bank of Baroda
+                            </strong>
+
+                            <i class="bi bi-chevron-right"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="bank-selected"
+                        id="selectedBank">
+
+                        <i class="bi bi-bank"></i>
+
+                        <span>
+                            Select a bank to continue
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 BILLING
+            ============================================== -->
+
+            <div class="checkout-card">
+
+                <div class="section-heading">
+
+                    <div class="section-icon">
+
+                        <i class="bi bi-person-vcard"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            BILLING INFORMATION
+                        </span>
+
+                        <h2>
+                            Your Details
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row g-3">
+
+
+                    <div class="col-md-6">
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="bi bi-person"></i>
+
+                            <input
+                                type="text"
+                                id="billingName"
+                                placeholder="John Doe">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <label>
+                            Phone Number
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="bi bi-phone"></i>
+
+                            <input
+                                type="tel"
+                                id="billingPhone"
+                                placeholder="+91 XXXXX XXXXX">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-12">
+
+                        <label>
+                            Email Address
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="bi bi-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="billingEmail"
+                                placeholder="you@example.com">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-5">
+
+                        <label>
+                            City
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="bi bi-buildings"></i>
+
+                            <input
+                                type="text"
+                                id="billingCity"
+                                placeholder="Hyderabad">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-7">
+
+                        <label>
+                            PIN Code
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="bi bi-geo-alt"></i>
+
+                            <input
+                                type="text"
+                                id="billingPin"
+                                maxlength="6"
+                                placeholder="500001">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-12">
+
+                        <label>
+                            Billing Address
+                        </label>
+
+                        <textarea
+                            id="billingAddress"
+                            rows="3"
+                            placeholder="Enter your complete billing address"></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             RIGHT COLUMN
+        ================================================= -->
+
+        <div class="col-xl-5">
+
+            <div class="summary-sticky">
+
+
+                <!-- =========================================
+                     ORDER SUMMARY
+                ========================================== -->
+
+                <div class="summary-card">
+
+
+                    <div class="summary-header">
+
+                        <div>
+
+                            <span>
+                                ORDER SUMMARY
+                            </span>
+
+                            <h2>
+                                Your Reservation
+                            </h2>
+
+                        </div>
+
+
+                        <div class="summary-lock">
+
+                            <i class="bi bi-shield-check"></i>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CAR -->
+
+                    <div class="summary-car">
+
+                        <img
+                            id="summaryCarImage"
+                            src=""
+                            alt="Selected car">
+
+
+                        <div>
+
+                            <h4 id="summaryCarName">
+                                Selected Car
+                            </h4>
+
+                            <p id="summaryCarInfo">
+                                Vehicle details
+                            </p>
+
+                            <span class="confirmed">
+
+                                <i class="bi bi-check-circle-fill"></i>
+
+                                Reservation Ready
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- DATES -->
+
+                    <div class="summary-dates">
+
+                        <div>
+
+                            <span>
+                                PICKUP
+                            </span>
+
+                            <strong id="summaryPickup">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <i class="bi bi-arrow-right"></i>
+
+
+                        <div>
+
+                            <span>
+                                RETURN
+                            </span>
+
+                            <strong id="summaryReturn">
+                                -
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PRICING -->
+
+                    <div class="pricing-section">
+
+
+                        <div class="pricing-row">
+
+                            <span>
+
+                                Rental
+                                (<b id="summaryDays">1</b> day)
+
+                            </span>
+
+                            <strong id="rentalAmount">
+                                ₹0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="pricing-row">
+
+                            <span>
+                                Extra Services
+                            </span>
+
+                            <strong id="serviceAmount">
+                                ₹0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="pricing-row">
+
+                            <span>
+                                Taxes (18%)
+                            </span>
+
+                            <strong id="taxAmount">
+                                ₹0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="pricing-row">
+
+                            <span>
+                                Service Fee
+                            </span>
+
+                            <strong id="serviceFee">
+                                ₹500
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PROMO -->
+
+                    <div class="promo-section">
+
+                        <label>
+                            Have a promo code?
+                        </label>
+
+                        <div class="promo-input">
+
+                            <i class="bi bi-tag"></i>
+
+                            <input
+                                type="text"
+                                id="promoCode"
+                                placeholder="CARJOY10">
+
+                            <button
+                                type="button"
+                                id="applyPromo">
+
+                                Apply
+
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            id="promoMessage"
+                            class="promo-message">
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- TOTAL -->
+
+                    <div class="total-section">
+
+                        <div>
+
+                            <span>
+                                Total Amount
+                            </span>
+
+                            <small>
+                                Inclusive of taxes & fees
+                            </small>
+
+                        </div>
+
+
+                        <strong id="grandTotal">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+
+                    <!-- TERMS -->
+
+                    <div class="terms-check">
+
+                        <input
+                            type="checkbox"
+                            id="paymentTerms">
+
+                        <label for="paymentTerms">
+
+                            I agree to the
+
+                            <a href="#">
+                                Terms & Conditions
+                            </a>
+
+                            and authorize CarJoy to
+                            process this payment.
+
+                        </label>
+
+                    </div>
+
+
+
+                    <!-- PAY -->
+
+                    <button
+                        type="button"
+                        id="payButton"
+                        class="pay-button">
+
+                        <span>
+
+                            <i class="bi bi-lock-fill"></i>
+
+                            Pay Securely
+
+                        </span>
+
+
+                        <strong id="buttonAmount">
+                            ₹0
+                        </strong>
+
+                    </button>
+
+
+                    <div class="secure-payment-note">
+
+                        <i class="bi bi-shield-lock-fill"></i>
+
+                        Secured with 256-bit SSL encryption
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================================
+                     TRUST
+                ========================================== -->
+
+                <div class="trust-box">
+
+                    <div class="trust-title">
+
+                        <i class="bi bi-award-fill"></i>
+
+                        <strong>
+                            Why book with CarJoy?
+                        </strong>
+
+                    </div>
+
+
+                    <div class="trust-row">
+
+                        <i class="bi bi-shield-check"></i>
+
+                        <div>
+
+                            <strong>
+                                Secure Payments
+                            </strong>
+
+                            <span>
+                                Your payment information stays protected.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="trust-row">
+
+                        <i class="bi bi-headset"></i>
+
+                        <div>
+
+                            <strong>
+                                24/7 Customer Support
+                            </strong>
+
+                            <span>
+                                Get assistance whenever you need it.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="trust-row">
+
+                        <i class="bi bi-lightning-charge"></i>
+
+                        <div>
+
+                            <strong>
+                                Instant Confirmation
+                            </strong>
+
+                            <span>
+                                Receive your booking confirmation instantly.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- =====================================================
+     PROCESSING MODAL
+===================================================== -->
+
+<div
+    class="modal fade"
+    id="processingModal"
+    tabindex="-1"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-body processing-body">
+
+                <div class="processing-animation">
+
+                    <div class="spinner-border"></div>
+
+                </div>
+
+                <h3>
+                    Processing Payment
+                </h3>
+
+                <p>
+                    Please wait while we securely process
+                    your payment.
+                </p>
+
+                <div class="processing-progress">
+                    <div></div>
+                </div>
+
+                <small>
+                    Do not refresh or close this page.
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SUCCESS MODAL
+===================================================== -->
+
+<div
+    class="modal fade"
+    id="successModal"
+    tabindex="-1"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content success-modal">
+
+            <div class="modal-body text-center">
+
+
+                <div class="success-animation">
+
+                    <i class="bi bi-check-lg"></i>
+
+                </div>
+
+
+                <span class="success-label">
+                    PAYMENT SUCCESSFUL
+                </span>
+
+
+                <h2>
+                    Booking Confirmed!
+                </h2>
+
+
+                <p>
+                    Your CarJoy reservation has been
+                    successfully confirmed.
+                </p>
+
+
+                <div class="confirmation-number">
+
+                    <span>
+                        BOOKING ID
+                    </span>
+
+                    <strong id="bookingId">
+                        CJ-000000
+                    </strong>
+
+
+                    <button
+                        type="button"
+                        id="copyBookingId">
+
+                        <i class="bi bi-copy"></i>
+
+                    </button>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="finishButton"
+                    class="finish-button">
+
+                    Continue
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-content">
+
+
+            <div>
+
+                <a
+                    href="index.html"
+                    class="footer-brand">
+
+                    <i class="bi bi-car-front-fill"></i>
+
+                    CarJoy
+
+                </a>
+
+                <p>
+                    Safe • Secure • Trusted Car Rentals
+                </p>
+
+            </div>
+
+
+            <div class="footer-security">
+
+                <span>
+
+                    <i class="bi bi-shield-check"></i>
+
+                    Secure
+
+                </span>
+
+
+                <span>
+
+                    <i class="bi bi-lock-fill"></i>
+
+                    Encrypted
+
+                </span>
+
+
+                <span>
+
+                    <i class="bi bi-headset"></i>
+
+                    24/7 Support
+
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <p>
+                    © 2026 CarJoy. All Rights Reserved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<!-- Payment JS -->
+
+<script src="payment.js"></script>
+
+
+</body>
+
+</html>

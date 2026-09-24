@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Booking Confirmed | CarJoy</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(13, 110, 253, 0.08),
+                    transparent 35%
+                ),
+                #f4f7fb;
+            font-family: "Inter", sans-serif;
+            color: #172033;
+        }
+
+        /* =====================================
+           NAVBAR
+        ====================================== */
+
+        .navbar {
+            background: rgba(255,255,255,.94);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid #e8edf5;
+            padding: 16px 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #111827;
+            font-size: 25px;
+            font-weight: 900;
+        }
+
+        .brand-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0d6efd;
+            color: white;
+            box-shadow: 0 8px 20px rgba(13,110,253,.25);
+        }
+
+        .nav-link {
+            color: #687386;
+            font-weight: 600;
+            margin-left: 20px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #0d6efd;
+        }
+
+        /* =====================================
+           PAGE HEADER
+        ====================================== */
+
+        .confirmation-header {
+            text-align: center;
+            padding: 65px 20px 35px;
+        }
+
+        .success-circle {
+            width: 105px;
+            height: 105px;
+            margin: auto;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e8f8ef;
+            color: #198754;
+            font-size: 55px;
+            box-shadow:
+                0 0 0 12px rgba(25,135,84,.06),
+                0 18px 40px rgba(25,135,84,.15);
+            animation: successPop .7s ease;
+        }
+
+        @keyframes successPop {
+
+            0% {
+                transform: scale(.5);
+                opacity: 0;
+            }
+
+            70% {
+                transform: scale(1.08);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .success-label {
+            display: inline-block;
+            margin-top: 25px;
+            color: #198754;
+            background: #e8f8ef;
+            padding: 7px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .confirmation-header h1 {
+            margin-top: 14px;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 900;
+            letter-spacing: -1.5px;
+        }
+
+        .confirmation-header p {
+            max-width: 650px;
+            margin: 12px auto;
+            color: #718096;
+            line-height: 1.7;
+        }
+
+        /* =====================================
+           PROGRESS
+        ====================================== */
+
+        .progress-wrapper {
+            max-width: 850px;
+            margin: 0 auto 35px;
+            padding: 0 20px;
+        }
+
+        .progress-bar-custom {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .progress-step {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-circle {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #198754;
+            color: white;
+            font-weight: 800;
+            box-shadow: 0 7px 18px rgba(25,135,84,.2);
+        }
+
+        .step-text strong {
+            display: block;
+            font-size: 13px;
+        }
+
+        .step-text span {
+            color: #8b96a7;
+            font-size: 11px;
+        }
+
+        .progress-line {
+            height: 2px;
+            width: 100px;
+            background: #198754;
+            margin: 0 18px;
+        }
+
+        /* =====================================
+           MAIN CARD
+        ====================================== */
+
+        .confirmation-card {
+            max-width: 1100px;
+            margin: auto;
+            background: white;
+            border: 1px solid #e7ebf2;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 25px 70px rgba(24,39,75,.10);
+        }
+
+        .card-top {
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #edf0f5;
+        }
+
+        .booking-id-box span {
+            display: block;
+            color: #8993a4;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .8px;
+        }
+
+        .booking-id-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .booking-id-row strong {
+            font-size: 20px;
+            letter-spacing: .5px;
+        }
+
+        .copy-btn {
+            border: 0;
+            background: #eef5ff;
+            color: #0d6efd;
+            width: 35px;
+            height: 35px;
+            border-radius: 9px;
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: #e9f8f0;
+            color: #198754;
+            border-radius: 50px;
+            padding: 9px 14px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        /* =====================================
+           VEHICLE
+        ====================================== */
+
+        .vehicle-section {
+            padding: 30px;
+            border-bottom: 1px solid #edf0f5;
+        }
+
+        .vehicle {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .vehicle-image {
+            width: 300px;
+            height: 190px;
+            overflow: hidden;
+            border-radius: 18px;
+            background: #edf1f7;
+            flex-shrink: 0;
+        }
+
+        .vehicle-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .vehicle-category {
+            color: #0d6efd;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .vehicle-info h2 {
+            font-size: 28px;
+            font-weight: 850;
+            margin: 7px 0;
+        }
+
+        .vehicle-info p {
+            color: #748094;
+            margin-bottom: 18px;
+        }
+
+        .vehicle-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .feature {
+            display: flex;
+            gap: 7px;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 9px;
+            background: #f5f7fa;
+            color: #536073;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .feature i {
+            color: #0d6efd;
+        }
+
+        /* =====================================
+           GRID
+        ====================================== */
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .detail-section {
+            padding: 30px;
+            border-bottom: 1px solid #edf0f5;
+        }
+
+        .detail-section:nth-child(odd) {
+            border-right: 1px solid #edf0f5;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .section-title-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: #eef5ff;
+            color: #0d6efd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-title h3 {
+            font-size: 16px;
+            margin: 0;
+            font-weight: 800;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 11px 0;
+            border-bottom: 1px dashed #e8ebf0;
+        }
+
+        .info-row:last-child {
+            border-bottom: 0;
+        }
+
+        .info-row span {
+            color: #8993a4;
+            font-size: 13px;
+        }
+
+        .info-row strong {
+            text-align: right;
+            font-size: 13px;
+        }
+
+        /* =====================================
+           PAYMENT SUMMARY
+        ====================================== */
+
+        .payment-section {
+            padding: 30px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            color: #667085;
+        }
+
+        .price-row strong {
+            color: #1c2434;
+        }
+
+        .discount {
+            color: #198754 !important;
+        }
+
+        .total-row {
+            margin-top: 12px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e9f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .total-row span {
+            font-weight: 800;
+        }
+
+        .total-row strong {
+            color: #0d6efd;
+            font-size: 28px;
+            font-weight: 900;
+        }
+
+        .paid-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: 12px;
+            background: #e8f8ef;
+            color: #198754;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* =====================================
+           ACTIONS
+        ====================================== */
+
+        .action-section {
+            padding: 25px 30px;
+            background: #fafbfc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .support-text {
+            color: #7b8798;
+            font-size: 12px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            border: 0;
+            padding: 12px 20px;
+            border-radius: 11px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .print-btn {
+            background: white;
+            color: #364152;
+            border: 1px solid #dce1e8;
+        }
+
+        .home-btn {
+            background: #0d6efd;
+            color: white;
+            box-shadow: 0 8px 20px rgba(13,110,253,.2);
+        }
+
+        .home-btn:hover {
+            background: #0b5ed7;
+            color: white;
+        }
+
+        /* =====================================
+           FOOTER
+        ====================================== */
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            color: #8993a4;
+            font-size: 12px;
+        }
+
+        footer strong {
+            color: #172033;
+        }
+
+        /* =====================================
+           RESPONSIVE
+        ====================================== */
+
+        @media (max-width: 768px) {
+
+            .progress-line {
+                width: 35px;
+                margin: 0 8px;
+            }
+
+            .step-text {
+                display: none;
+            }
+
+            .vehicle {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .vehicle-image {
+                width: 100%;
+                height: 220px;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-section:nth-child(odd) {
+                border-right: 0;
+            }
+
+            .card-top,
+            .action-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .action-buttons {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .action-btn {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .vehicle-section,
+            .detail-section,
+            .payment-section {
+                padding: 22px;
+            }
+
+        }
+
+        /* =====================================
+           PRINT
+        ====================================== */
+
+        @media print {
+
+            body {
+                background: white;
+            }
+
+            .navbar,
+            .progress-wrapper,
+            .action-section,
+            footer {
+                display: none !important;
+            }
+
+            .confirmation-header {
+                padding: 20px;
+            }
+
+            .confirmation-card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     NAVBAR
+====================================== -->
+
+<nav class="navbar">
+
+    <div class="container">
+
+        <a href="index.html" class="brand">
+
+            <span class="brand-icon">
+
+                <i class="bi bi-car-front-fill"></i>
+
+            </span>
+
+            CarJoy
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================
+     SUCCESS HEADER
+====================================== -->
+
+<section class="confirmation-header">
+
+    <div class="success-circle">
+
+        <i class="bi bi-check-lg"></i>
+
+    </div>
+
+
+    <span class="success-label">
+
+        PAYMENT SUCCESSFUL
+
+    </span>
+
+
+    <h1>
+        Booking Confirmed!
+    </h1>
+
+
+    <p>
+
+        Your reservation has been successfully
+        confirmed. Your vehicle is ready for pickup.
+
+    </p>
+
+</section>
+
+
+<!-- =====================================
+     PROGRESS
+====================================== -->
+
+<div class="progress-wrapper">
+
+    <div class="progress-bar-custom">
+
+        <div class="progress-step">
+
+            <div class="step-circle">
+
+                <i class="bi bi-check-lg"></i>
+
+            </div>
+
+            <div class="step-text">
+
+                <strong>Booking</strong>
+
+                <span>Details</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="progress-line"></div>
+
+
+        <div class="progress-step">
+
+            <div class="step-circle">
+
+                <i class="bi bi-check-lg"></i>
+
+            </div>
+
+            <div class="step-text">
+
+                <strong>Payment</strong>
+
+                <span>Completed</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="progress-line"></div>
+
+
+        <div class="progress-step">
+
+            <div class="step-circle">
+
+                <i class="bi bi-check-lg"></i>
+
+            </div>
+
+            <div class="step-text">
+
+                <strong>Confirmation</strong>
+
+                <span>Confirmed</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================
+     CONFIRMATION CARD
+====================================== -->
+
+<div class="container pb-5">
+
+    <div class="confirmation-card">
+
+
+        <!-- BOOKING HEADER -->
+
+        <div class="card-top">
+
+            <div class="booking-id-box">
+
+                <span>
+                    BOOKING ID
+                </span>
+
+                <div class="booking-id-row">
+
+                    <strong id="bookingId">
+                        CJ-000000
+                    </strong>
+
+                    <button
+                        class="copy-btn"
+                        id="copyBookingId"
+                        title="Copy booking ID">
+
+                        <i class="bi bi-copy"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="status-badge">
+
+                <i class="bi bi-check-circle-fill"></i>
+
+                <span id="reservationStatus">
+                    Confirmed
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- VEHICLE -->
+
+        <div class="vehicle-section">
+
+            <div class="vehicle">
+
+                <div class="vehicle-image">
+
+                    <img
+                        id="carImage"
+                        src=""
+                        alt="Selected vehicle">
+
+                </div>
+
+
+                <div class="vehicle-info">
+
+                    <span class="vehicle-category">
+                        PREMIUM CAR RENTAL
+                    </span>
+
+                    <h2 id="carName">
+                        Selected Car
+                    </h2>
+
+                    <p id="carInfo">
+                        Vehicle details
+                    </p>
+
+
+                    <div class="vehicle-features">
+
+                        <div class="feature">
+
+                            <i class="bi bi-fuel-pump"></i>
+
+                            <span id="fuelDisplay">
+                                Fuel
+                            </span>
+
+                        </div>
+
+
+                        <div class="feature">
+
+                            <i class="bi bi-gear"></i>
+
+                            <span id="transmissionDisplay">
+                                Automatic
+                            </span>
+
+                        </div>
+
+
+                        <div class="feature">
+
+                            <i class="bi bi-people"></i>
+
+                            <span id="seatsDisplay">
+                                5 Seats
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DETAILS GRID -->
+
+        <div class="details-grid">
+
+
+            <!-- TRIP -->
+
+            <div class="detail-section">
+
+                <div class="section-title">
+
+                    <div class="section-title-icon">
+
+                        <i class="bi bi-calendar-check"></i>
+
+                    </div>
+
+                    <h3>
+                        Trip Details
+                    </h3>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Pickup Date
+                    </span>
+
+                    <strong id="pickupDate">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Return Date
+                    </span>
+
+                    <strong id="returnDate">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Rental Period
+                    </span>
+
+                    <strong id="rentalDays">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- CUSTOMER -->
+
+            <div class="detail-section">
+
+                <div class="section-title">
+
+                    <div class="section-title-icon">
+
+                        <i class="bi bi-person-vcard"></i>
+
+                    </div>
+
+                    <h3>
+                        Customer Details
+                    </h3>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Name
+                    </span>
+
+                    <strong id="customerName">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Email
+                    </span>
+
+                    <strong id="customerEmail">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Phone
+                    </span>
+
+                    <strong id="customerPhone">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        City
+                    </span>
+
+                    <strong id="customerCity">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- SERVICES -->
+
+            <div class="detail-section">
+
+                <div class="section-title">
+
+                    <div class="section-title-icon">
+
+                        <i class="bi bi-stars"></i>
+
+                    </div>
+
+                    <h3>
+                        Extra Services
+                    </h3>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        GPS Navigation
+                    </span>
+
+                    <strong id="gpsAmount">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Professional Driver
+                    </span>
+
+                    <strong id="driverAmount">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Premium Insurance
+                    </span>
+
+                    <strong id="insuranceAmount">
+                        ₹0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- PAYMENT -->
+
+            <div class="detail-section">
+
+                <div class="section-title">
+
+                    <div class="section-title-icon">
+
+                        <i class="bi bi-credit-card"></i>
+
+                    </div>
+
+                    <h3>
+                        Payment Details
+                    </h3>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Payment Method
+                    </span>
+
+                    <strong id="paymentMethod">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Transaction ID
+                    </span>
+
+                    <strong id="transactionId">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Payment Status
+                    </span>
+
+                    <strong
+                        id="paymentStatus"
+                        style="color:#198754">
+
+                        Paid
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PAYMENT SUMMARY -->
+
+        <div class="payment-section">
+
+            <div class="section-title">
+
+                <div class="section-title-icon">
+
+                    <i class="bi bi-receipt"></i>
+
+                </div>
+
+                <h3>
+                    Payment Summary
+                </h3>
+
+            </div>
+
+
+            <div class="price-row">
+
+                <span>
+                    Rental Amount
+                </span>
+
+                <strong id="rentalAmount">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="price-row">
+
+                <span>
+                    Extra Services
+                </span>
+
+                <strong id="extraServicesAmount">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="price-row">
+
+                <span>
+                    Taxes (18%)
+                </span>
+
+                <strong id="taxAmount">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="price-row">
+
+                <span>
+                    Service Fee
+                </span>
+
+                <strong id="serviceFee">
+                    ₹500
+                </strong>
+
+            </div>
+
+
+            <div class="price-row">
+
+                <span>
+                    Discount
+                </span>
+
+                <strong
+                    id="discountAmount"
+                    class="discount">
+
+                    ₹0
+
+                </strong>
+
+            </div>
+
+
+            <div class="total-row">
+
+                <span>
+                    Total Paid
+                </span>
+
+                <strong id="totalAmount">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="paid-badge">
+
+                <i class="bi bi-check-circle-fill"></i>
+
+                Payment successfully received
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIONS -->
+
+        <div class="action-section">
+
+            <div class="support-text">
+
+                <i class="bi bi-headset"></i>
+
+                Need help? CarJoy support is available 24/7.
+
+            </div>
+
+
+            <div class="action-buttons">
+
+                <button
+                    type="button"
+                    class="action-btn print-btn"
+                    id="printReservation">
+
+                    <i class="bi bi-printer"></i>
+
+                    Print Receipt
+
+                </button>
+
+
+                <a
+                    href="index.html"
+                    class="action-btn home-btn"
+                    id="homeButton">
+
+                    <i class="bi bi-house"></i>
+
+                    Back to Home
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    <strong>🚗 CarJoy</strong>
+
+    <br>
+
+    Safe • Secure • Trusted Car Rentals
+
+    <br><br>
+
+    © 2026 CarJoy. All Rights Reserved.
+
+</footer>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    console.log("CARJOY CONFIRMATION PAGE");
+
+
+    /* ======================================
+       LOAD RESERVATION
+    ====================================== */
+
+    const reservation =
+        JSON.parse(
+            localStorage.getItem("reservation")
+        );
+
+
+    console.log("Reservation:", reservation);
+
+
+    if (!reservation) {
+
+        alert("No reservation found.");
+
+        window.location.href =
+            "index.html";
+
+        return;
+
+    }
+
+
+    /* ======================================
+       HELPERS
+    ====================================== */
+
+    function get(id) {
+
+        return document.getElementById(id);
+
+    }
+
+
+    function setText(id, value) {
+
+        const element = get(id);
+
+        if (element) {
+
+            element.textContent =
+                value ?? "-";
+
+        }
+
+    }
+
+
+    function money(value) {
+
+        return "₹" +
+            Number(value || 0)
+                .toLocaleString("en-IN");
+
+    }
+
+
+    /* ======================================
+       BOOKING ID
+    ====================================== */
+
+    setText(
+        "bookingId",
+        reservation.bookingId ||
+        reservation.reservationId ||
+        localStorage.getItem("bookingId") ||
+        "CJ-000000"
+    );
+
+
+    /* ======================================
+       STATUS
+    ====================================== */
+
+    setText(
+        "reservationStatus",
+        reservation.status ||
+        "Confirmed"
+    );
+
+
+    /* ======================================
+       CAR
+    ====================================== */
+
+    const car =
+        reservation.car || {};
+
+
+    setText(
+        "carName",
+        car.name || "Selected Car"
+    );
+
+
+    setText(
+        "carInfo",
+        [
+            car.fuel,
+            car.transmission,
+            car.seats
+                ? car.seats + " Seats"
+                : ""
+        ]
+        .filter(Boolean)
+        .join(" • ")
+    );
+
+
+    setText(
+        "fuelDisplay",
+        car.fuel || "Fuel"
+    );
+
+
+    setText(
+        "transmissionDisplay",
+        car.transmission || "Automatic"
+    );
+
+
+    setText(
+        "seatsDisplay",
+        car.seats
+            ? car.seats + " Seats"
+            : "5 Seats"
+    );
+
+
+    const carImage =
+        get("carImage");
+
+
+    if (
+        carImage &&
+        car.image
+    ) {
+
+        carImage.src =
+            car.image;
+
+        carImage.alt =
+            car.name || "CarJoy vehicle";
+
+    }
+
+
+    /* ======================================
+       RENTAL
+    ====================================== */
+
+    const rental =
+        reservation.rental || {};
+
+
+    const rentalDays =
+        Number(
+            rental.rentalDays || 1
+        );
+
+
+    setText(
+        "pickupDate",
+        rental.pickupDate ||
+        "Not selected"
+    );
+
+
+    setText(
+        "returnDate",
+        rental.returnDate ||
+        "Not selected"
+    );
+
+
+    setText(
+        "rentalDays",
+        rentalDays +
+        " Day" +
+        (rentalDays > 1 ? "s" : "")
+    );
+
+
+    /* ======================================
+       SERVICES
+    ====================================== */
+
+    const services =
+        reservation.services || {};
+
+
+    const gps =
+        services.gps ? 300 : 0;
+
+
+    const driver =
+        services.driver ? 1000 : 0;
+
+
+    const insurance =
+        services.insurance ? 500 : 0;
+
+
+    const extraServices =
+        gps +
+        driver +
+        insurance;
+
+
+    setText(
+        "gpsAmount",
+        money(gps)
+    );
+
+
+    setText(
+        "driverAmount",
+        money(driver)
+    );
+
+
+    setText(
+        "insuranceAmount",
+        money(insurance)
+    );
+
+
+    setText(
+        "extraServicesAmount",
+        money(extraServices)
+    );
+
+
+    /* ======================================
+       CUSTOMER
+    ====================================== */
+
+    const customer =
+        reservation.customer || {};
+
+
+    setText(
+        "customerName",
+        customer.name ||
+        "N/A"
+    );
+
+
+    setText(
+        "customerEmail",
+        customer.email ||
+        "N/A"
+    );
+
+
+    setText(
+        "customerPhone",
+        customer.phone ||
+        "N/A"
+    );
+
+
+    setText(
+        "customerCity",
+        customer.city ||
+        "N/A"
+    );
+
+
+    /* ======================================
+       PAYMENT
+    ====================================== */
+
+    const payment =
+        reservation.payment || {};
+
+
+    setText(
+        "paymentMethod",
+        payment.method ||
+        "Credit / Debit Card"
+    );
+
+
+    setText(
+        "transactionId",
+        reservation.transactionId ||
+        "N/A"
+    );
+
+
+    setText(
+        "paymentStatus",
+        reservation.paymentStatus ||
+        "Paid"
+    );
+
+
+    /* ======================================
+       PAYMENT AMOUNTS
+    ====================================== */
+
+    const rentalAmount =
+        Number(
+            payment.rentalAmount || 0
+        );
+
+
+    const tax =
+        Number(
+            payment.tax || 0
+        );
+
+
+    const serviceFee =
+        Number(
+            payment.serviceFee || 0
+        );
+
+
+    const discount =
+        Number(
+            payment.discount || 0
+        );
+
+
+    const totalAmount =
+        Number(
+            payment.totalAmount || 0
+        );
+
+
+    setText(
+        "rentalAmount",
+        money(rentalAmount)
+    );
+
+
+    setText(
+        "extraServicesAmount",
+        money(extraServices)
+    );
+
+
+    setText(
+        "taxAmount",
+        money(tax)
+    );
+
+
+    setText(
+        "serviceFee",
+        money(serviceFee)
+    );
+
+
+    setText(
+        "discountAmount",
+        discount > 0
+            ? "-" + money(discount)
+            : money(0)
+    );
+
+
+    setText(
+        "totalAmount",
+        money(totalAmount)
+    );
+
+
+    /* ======================================
+       COPY BOOKING ID
+    ====================================== */
+
+    const copyButton =
+        get("copyBookingId");
+
+
+    if (copyButton) {
+
+        copyButton.addEventListener(
+            "click",
+            async function () {
+
+                const bookingId =
+                    get("bookingId")
+                        ?.textContent;
+
+                try {
+
+                    await navigator.clipboard.writeText(
+                        bookingId
+                    );
+
+                    this.innerHTML =
+                        '<i class="bi bi-check-lg"></i>';
+
+                    setTimeout(() => {
+
+                        this.innerHTML =
+                            '<i class="bi bi-copy"></i>';
+
+                    }, 1500);
+
+                } catch (error) {
+
+                    alert(
+                        "Booking ID: " +
+                        bookingId
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* ======================================
+       PRINT
+    ====================================== */
+
+    const printButton =
+        get("printReservation");
+
+
+    if (printButton) {
+
+        printButton.addEventListener(
+            "click",
+            function () {
+
+                window.print();
+
+            }
+        );
+
+    }
+
+
+    /* ======================================
+       FINAL LOG
+    ====================================== */
+
+    console.log(
+        "✓ CarJoy reservation loaded successfully"
+    );
+
+});
+
+</script>
+
+
+</body>
+
+</html>

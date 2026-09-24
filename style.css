@@ -1,0 +1,1260 @@
+/*==================================================
+            GOOGLE FONT
+==================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f8fafc;
+    color:#222;
+    overflow-x:hidden;
+}
+
+/*==================================================
+                    NAVBAR
+==================================================*/
+
+.navbar{
+    background:rgba(13,17,23,.95)!important;
+    backdrop-filter:blur(15px);
+    padding:15px 0;
+    transition:.4s;
+    z-index:1000;
+}
+
+.navbar-brand{
+    font-size:32px;
+    font-weight:700;
+    letter-spacing:1px;
+    color:#fff!important;
+}
+
+.navbar-brand:hover{
+    color:#ffc107!important;
+}
+
+.navbar-nav .nav-link{
+
+    color:white!important;
+
+    margin-left:18px;
+
+    font-size:17px;
+
+    font-weight:500;
+
+    position:relative;
+
+    transition:.3s;
+
+}
+
+.navbar-nav .nav-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:0;
+
+    height:2px;
+
+    background:#ffc107;
+
+    left:0;
+
+    bottom:-4px;
+
+    transition:.3s;
+
+}
+
+.navbar-nav .nav-link:hover::after{
+
+    width:100%;
+
+}
+
+.navbar-nav .nav-link:hover{
+
+    color:#ffc107!important;
+
+}
+
+/*==================================================
+                    HERO
+==================================================*/
+
+.hero{
+
+    height:100vh;
+
+    background:url("https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg")
+    center center/cover no-repeat;
+
+    position:relative;
+
+}
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(rgba(0,0,0,.70),
+    rgba(0,0,0,.60));
+
+}
+
+.overlay{
+
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+}
+
+.overlay h1{
+
+    font-size:70px;
+
+    color:white;
+
+    font-weight:800;
+
+    margin-bottom:20px;
+
+    animation:slideDown 1s;
+
+}
+
+.overlay p{
+
+    color:#ddd;
+
+    font-size:22px;
+
+    margin-bottom:35px;
+
+    animation:fadeIn 2s;
+
+}
+
+/*==================================================
+                HERO BUTTONS
+==================================================*/
+
+.btn{
+
+    border-radius:40px;
+
+    padding:13px 32px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    transition:.4s;
+
+}
+
+.btn-warning{
+
+    background:#ffb703;
+
+    border:none;
+
+    color:#fff;
+
+}
+
+.btn-warning:hover{
+
+    transform:translateY(-4px);
+
+    background:#ff9800;
+
+}
+
+.btn-outline-light:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/*==================================================
+                BOOKING BOX
+==================================================*/
+
+.booking-box{
+
+    margin-top:-70px;
+
+    position:relative;
+
+    z-index:100;
+
+    background:white;
+
+    border-radius:20px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.15);
+
+    padding:35px;
+
+}
+
+.booking-box label{
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+}
+
+.booking-box .form-control{
+
+    height:55px;
+
+    border-radius:12px;
+
+    border:1px solid #ddd;
+
+    transition:.3s;
+
+}
+
+.booking-box .form-control:focus{
+
+    border-color:#0d6efd;
+
+    box-shadow:0 0 0 0.2rem rgba(13,110,253,.15);
+
+}
+
+.booking-box .btn-primary{
+
+    height:55px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    background:linear-gradient(135deg,#0066ff,#0099ff);
+
+}
+
+.booking-box .btn-primary:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(0,102,255,.35);
+
+}
+
+/*==================================================
+            ANIMATIONS
+==================================================*/
+
+@keyframes slideDown{
+
+    from{
+
+        transform:translateY(-60px);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:translateY(0);
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+/*==================================================
+            RESPONSIVE
+==================================================*/
+
+@media(max-width:992px){
+
+.hero{
+
+height:85vh;
+
+}
+
+.overlay h1{
+
+font-size:52px;
+
+}
+
+.booking-box{
+
+margin-top:30px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.hero{
+
+height:75vh;
+
+}
+
+.overlay h1{
+
+font-size:38px;
+
+}
+
+.overlay p{
+
+font-size:18px;
+
+}
+
+.navbar-brand{
+
+font-size:26px;
+
+}
+
+.nav-link{
+
+margin-left:0;
+
+padding:10px 0;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.hero{
+
+height:70vh;
+
+}
+
+.overlay h1{
+
+font-size:30px;
+
+}
+
+.overlay p{
+
+font-size:16px;
+
+}
+
+.btn{
+
+width:100%;
+
+margin-bottom:10px;
+
+}
+
+.booking-box{
+
+padding:20px;
+
+}
+
+}
+/*==================================================
+            FEATURES SECTION
+==================================================*/
+
+#services{
+    padding:90px 0;
+}
+
+#services h2{
+    font-size:42px;
+    font-weight:700;
+    color:#111827;
+}
+
+#services .text-center p{
+    color:#6b7280;
+    font-size:18px;
+}
+
+.feature-box{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:35px 25px;
+
+    transition:.4s;
+
+    cursor:pointer;
+
+    height:100%;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.feature-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-100%;
+
+    width:100%;
+
+    height:100%;
+
+    background:linear-gradient(90deg,
+    transparent,
+    rgba(255,255,255,.5),
+    transparent);
+
+    transition:.7s;
+
+}
+
+.feature-box:hover::before{
+
+    left:100%;
+
+}
+
+.feature-box:hover{
+
+    transform:translateY(-15px);
+
+    box-shadow:0 25px 45px rgba(0,0,0,.18);
+
+}
+
+.feature-box i{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+
+}
+
+.feature-box h5{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+.feature-box p{
+
+    color:#6b7280;
+
+    line-height:1.8;
+
+}
+
+/*==================================================
+            POPULAR CARS
+==================================================*/
+
+#cars{
+
+    padding:90px 0;
+
+}
+
+#cars h2{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    color:#111827;
+
+    margin-bottom:15px;
+
+}
+
+/*==================================================
+            CAR CARD
+==================================================*/
+
+.card{
+
+    border:none;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    background:#fff;
+
+    transition:.45s;
+
+    height:100%;
+
+    position:relative;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.card:hover{
+
+    transform:translateY(-15px);
+
+    box-shadow:0 25px 45px rgba(0,0,0,.20);
+
+}
+
+/*==================================================
+            CAR IMAGE
+==================================================*/
+
+.card-img-top{
+
+    width:100%;
+
+    height:250px;
+
+    object-fit:cover;
+
+    transition:.6s;
+
+}
+
+.card:hover .card-img-top{
+
+    transform:scale(1.08);
+
+}
+
+/*==================================================
+            CARD BODY
+==================================================*/
+
+.card-body{
+
+    padding:28px;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.card-body h4{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+    color:#111827;
+
+}
+
+/*==================================================
+            CAR DETAILS
+==================================================*/
+
+.card-body .d-flex{
+
+    background:#f5f7fb;
+
+    border-radius:12px;
+
+    padding:12px 8px;
+
+}
+
+.card-body span{
+
+    font-size:15px;
+
+    color:#555;
+
+    font-weight:500;
+
+}
+
+.card-body span i{
+
+    color:#0d6efd;
+
+    margin-right:5px;
+
+    font-size:17px;
+
+}
+
+.card hr{
+
+    margin:22px 0;
+
+    opacity:.15;
+
+}
+
+/*==================================================
+            PRICE
+==================================================*/
+
+.card h3{
+
+    color:#0d6efd!important;
+
+    font-size:32px;
+
+    font-weight:700;
+
+}
+
+.card small{
+
+    color:#777;
+
+    font-size:15px;
+
+}
+
+/*==================================================
+            BOOK BUTTON
+==================================================*/
+
+.book{
+
+    margin-top:auto;
+
+    width:100%;
+
+    border:none;
+
+    border-radius:50px;
+
+    padding:14px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    background:linear-gradient(135deg,#0d6efd,#2563eb);
+
+    transition:.35s;
+
+}
+
+.book:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 12px 25px rgba(13,110,253,.35);
+
+    background:linear-gradient(135deg,#2563eb,#0d6efd);
+
+}
+
+/*==================================================
+            PRICE GLOW
+==================================================*/
+
+.card h3{
+
+    text-shadow:0 0 10px rgba(13,110,253,.15);
+
+}
+
+/*==================================================
+            CARD BADGE EFFECT
+==================================================*/
+
+.card::after{
+
+    content:"Premium";
+
+    position:absolute;
+
+    top:15px;
+
+    right:-40px;
+
+    width:140px;
+
+    text-align:center;
+
+    background:#ffc107;
+
+    color:#111;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    padding:6px 0;
+
+    transform:rotate(45deg);
+
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+}
+
+/*==================================================
+            RESPONSIVE
+==================================================*/
+
+@media(max-width:992px){
+
+.card-img-top{
+
+height:220px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+#services h2,
+#cars h2{
+
+font-size:34px;
+
+}
+
+.feature-box{
+
+margin-bottom:20px;
+
+}
+
+.card-img-top{
+
+height:210px;
+
+}
+
+.card-body{
+
+padding:22px;
+
+}
+
+.card h3{
+
+font-size:28px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.card-img-top{
+
+height:200px;
+
+}
+
+.card-body h4{
+
+font-size:21px;
+
+}
+
+.card-body span{
+
+font-size:13px;
+
+}
+
+.book{
+
+padding:12px;
+
+}
+
+}
+/*==================================================
+            STATISTICS SECTION
+==================================================*/
+
+.bg-primary{
+
+    background:linear-gradient(135deg,#0f172a,#1d4ed8)!important;
+
+    padding:90px 0;
+
+}
+
+.bg-primary .col-md-3{
+
+    transition:.4s;
+
+}
+
+.bg-primary .col-md-3:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.bg-primary h1{
+
+    font-size:55px;
+
+    font-weight:700;
+
+    color:#fff;
+
+    margin-bottom:10px;
+
+}
+
+.bg-primary p{
+
+    color:#dbeafe;
+
+    font-size:18px;
+
+    letter-spacing:1px;
+
+}
+
+/*==================================================
+            TESTIMONIALS
+==================================================*/
+
+#testimonials{
+
+    padding:90px 0;
+
+    background:#f8fafc;
+
+}
+
+#testimonials h2{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    color:#111827;
+
+}
+
+#testimonials .shadow{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    transition:.4s;
+
+    border:1px solid #ececec;
+
+    height:100%;
+
+}
+
+#testimonials .shadow:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:0 25px 45px rgba(0,0,0,.15)!important;
+
+}
+
+#testimonials p{
+
+    color:#6b7280;
+
+    line-height:1.8;
+
+    margin:20px 0;
+
+}
+
+#testimonials h6{
+
+    color:#111827;
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+#testimonials .shadow::before{
+
+    content:"★★★★★";
+
+    display:block;
+
+    color:#ffc107;
+
+    font-size:22px;
+
+    letter-spacing:4px;
+
+}
+
+/*==================================================
+            CONTACT
+==================================================*/
+
+#contact{
+
+    background:#0f172a!important;
+
+    padding:80px 0;
+
+}
+
+#contact h2{
+
+    color:#fff;
+
+    font-size:40px;
+
+    font-weight:700;
+
+}
+
+#contact h4{
+
+    color:#fff;
+
+    margin-bottom:25px;
+
+    font-weight:600;
+
+}
+
+#contact p{
+
+    color:#cbd5e1;
+
+    font-size:17px;
+
+    margin-bottom:15px;
+
+}
+
+#contact p i{
+
+    color:#3b82f6;
+
+    margin-right:10px;
+
+}
+
+.fs-2 i{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:55px;
+
+    height:55px;
+
+    background:#1e293b;
+
+    border-radius:50%;
+
+    color:white;
+
+    margin-right:15px;
+
+    transition:.4s;
+
+    cursor:pointer;
+
+}
+
+.fs-2 i:hover{
+
+    background:#2563eb;
+
+    transform:translateY(-8px) rotate(360deg);
+
+}
+
+/*==================================================
+            FOOTER
+==================================================*/
+
+footer{
+
+    background:#020617!important;
+
+    color:#cbd5e1;
+
+    padding:25px 0;
+
+    text-align:center;
+
+    font-size:16px;
+
+    letter-spacing:.5px;
+
+}
+
+/*==================================================
+            SCROLLBAR
+==================================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#f1f5f9;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2563eb;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#1d4ed8;
+
+}
+
+/*==================================================
+            TEXT SELECTION
+==================================================*/
+
+::selection{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+/*==================================================
+            IMAGE TRANSITIONS
+==================================================*/
+
+img{
+
+    transition:.5s;
+
+}
+
+/*==================================================
+            HOVER EFFECT
+==================================================*/
+
+a{
+
+    text-decoration:none;
+
+}
+
+button{
+
+    transition:.3s;
+
+}
+
+button:active{
+
+    transform:scale(.98);
+
+}
+
+/*==================================================
+            FADE ANIMATION
+==================================================*/
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(50px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.feature-box,
+.card,
+#testimonials .shadow{
+
+    animation:fadeUp .8s ease;
+
+}
+
+/*==================================================
+            RESPONSIVE
+==================================================*/
+
+@media(max-width:992px){
+
+.bg-primary h1{
+
+font-size:42px;
+
+}
+
+#contact{
+
+text-align:center;
+
+}
+
+.fs-2{
+
+margin-top:30px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+#testimonials h2,
+#contact h2{
+
+font-size:34px;
+
+}
+
+.bg-primary .col-md-3{
+
+margin-bottom:35px;
+
+}
+
+.fs-2 i{
+
+width:50px;
+
+height:50px;
+
+font-size:20px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.bg-primary h1{
+
+font-size:36px;
+
+}
+
+#contact h2{
+
+font-size:28px;
+
+}
+
+#contact p{
+
+font-size:15px;
+
+}
+
+footer{
+
+font-size:14px;
+
+}
+
+}
